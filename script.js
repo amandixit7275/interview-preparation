@@ -303,3 +303,117 @@ const fe = test.bind(obj3, 2, 3);
 fe();
 
 //call() and apply() method both are same, but in apply method we can pass only two argument, and 2nd argument is only an array..
+// Class, class expression and static members
+let getData = "showData"; //creating dynamic method name
+class House {
+  constructor(nDoors, windows) {
+    this.nDoors = nDoors;
+    this.windows = windows;
+  }
+  //method
+  //dynamic method
+  [getData]() {
+    console.log(`This house has ${this.nDoors} doors, ${this.windows} windows`);
+  }
+
+  static test() {
+    console.log("This test is static");
+  }
+  static appVersion = 1.2;
+
+  //static method are not going to reflect in the instance of the class
+}
+
+//creating an instance of a class{empty object} with new keyword
+const obje = new House(3, 5);
+const obje1 = new House(5, 7);
+console.log(obje);
+console.log(obje1);
+obje.showData();
+//Inheritance , Subclassing and Extending built in class
+//extend : use to create child class
+//super: allow you to asses parent class member
+// class Child extends String {}
+// const obje3 = new Child("test string");
+// console.log(obje3.toUpperCase());
+
+class Parent {
+  constructor(a) {
+    this.a = a;
+
+    console.log("I am Parent", a);
+  }
+  pMethod() {
+    console.log("P Method of parent", this.a);
+  }
+}
+
+class Child extends Parent {
+  constructor(a) {
+    //super: for accessing parent class member
+    super(a);
+  }
+  pMethod() {
+    console.log("p Method of child");
+  }
+  cMethod() {
+    //super: for assessing the parent methods
+    super.pMethod();
+  }
+}
+
+const obje4 = new Child(4);
+//in case of overriding child method would be preferrable
+obje4.pMethod();
+obje4.cMethod();
+//Section 6 Map, Set , WeakMap & WeakSet(ES6 Data structure)
+//Map: value to value
+let product = new Map();
+product.set("pCode", "1001").set(1, "Apple").set(true, "Available");
+console.log(product);
+
+console.log("****");
+
+for (let [k, v] of product.entries()) {
+  console.log(k, v);
+}
+
+//Object - Array: Object.entries()
+let ob = {
+  pCode: 1001,
+  pName: "Orange",
+  price: 56,
+};
+console.log(Object.entries(ob));
+//Object - Map, Object - Array: Object.entries()
+//Array - Map : new Map
+
+console.log(new Map(Object.entries(ob)));
+
+//Map - Object
+
+console.log(Object.fromEntries(product.entries()));
+//Map: has(),delete(),clear() method
+console.log(product.has("pCode"));
+console.log(product.has("abc"));
+//Map are iterable : forEach, (note: for each cannot be broken)
+
+product.forEach((v, k, m) => {
+  console.log(`${v}- ${k}`);
+});
+product.delete("pCode");
+console.log(product);
+product.clear();
+console.log(product);
+
+// Set: set are the set of unique product.
+
+let names = new Set(["First", "Second", "third", "First"]);
+//sets are iterable,we canuse .keys(),.values(),.entries(): But they all provide same output
+console.log(names);
+for (let v of names) {
+  console.log(v);
+}
+names.forEach((k) => console.log(k));
+names.clear();
+console.log(names);

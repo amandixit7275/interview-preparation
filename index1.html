@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      /* #container {
+        width: 620px;
+        height: 100px;
+        padding: 100px;
+        border: 5px solid gray;
+        margin: 0;
+      }
+      #box {
+        width: 320px;
+        height: 50px;
+        padding: 50px;
+        border: 5px solid gray;
+        margin: 0;
+      } */
+      div {
+        width: 30px;
+        height: 10px;
+        padding: 100px;
+        border: 1px solid blue;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="div1">
+      <ul>
+        <h1>First Division</h1>
+        <li>First Item</li>
+        <li>Second item</li>
+      </ul>
+    </div>
+    <div>
+      <h1>Second Division</h1>
+      <input type="text" /><br />
+      <button onclick="btnClick()">Click me!</button>
+    </div>
+
+    <script>
+      function btnClick() {
+        // console.log(document.body.childNodes);
+        // console.log(document.body.childNodes.length);
+        const div1 = document.getElementById("div1");
+        console.log(div1.firstChild);
+        console.log(div1.firstElementChild);
+        console.log(div1.lastChild);
+        console.log(div1.lastElementChild);
+        console.log(div1.firstElementChild.nodeName);
+        console.log(div1.nextElementSibling);
+        console.log(div1.parentNode);
+        console.log(div1.parentElement);
+      }
+    </script>
+
+    <!-- <table onClick = 'mainClick()' >
+        <tr>
+            <th>Code</th>
+            <th>Product</th>
+            <th>Price</th>
+        </tr>
+        <tr>
+            <th>1001</th>
+            <th>Apple</th>
+            <th>$#40</th>
+        </tr
+        <tr>
+            <th>1002</th>
+            <th>Orange</th>
+            <th>$10</th>
+        </tr
+        <tr>
+            <th>1003</th>
+            <th>Orange</th>
+            <th>$40 </th>
+        </tr
+    </table> -->
+    <!-- <div id="container">
+      <div id="box">
+        <button id="btn1">Click me</button>
+      </div>
+    </div> -->
+    <!-- <script>
+      //Event Delegation: rather then capturing event where event was triggered , capture event at the higher level..
+      function mainClick() {
+        console.log(event.target.value);
+        console.log(event.target.tagName);
+      }
+      //   const btn1 = document.getElementById("btn1");
+      //   const box = document.getElementById("box");
+      //   const container = document.getElementById("container");
+      //   window.onload = function () {
+      //     btn1.addEventListener("click", btnClick, true);
+      //     box.addEventListener("click", divClick, true);
+      //     container.addEventListener("click", parentDivClick, true);
+      //   };
+      //   function divClick() {
+      //     alert("Division clicked");
+      //   }
+      //   function btnClick() {
+      //     //event.target returns the reference of element which raised the event
+
+      //     alert("button clicked");
+      //     //event.stopPropagation() stops the bubbling.
+      //     // event.stopPropagation();
+      //   }
+      //   function parentDivClick() {
+      //     alert("parent Div Clicked");
+      //   }
+    </script> -->
+  </body>
+</html>
