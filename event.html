@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      button {
+        padding: 20px;
+        margin-top: 100px;
+        margin-right: 20px;
+        margin-left: 20px;
+        background-color: blueviolet;
+        color: white;
+        font-size: 30px;
+      }
+    </style>
+  </head>
+  <!-- <body>
+    <button onclick="alert('Not an ideal way')">The inline way</button>
+    <button onclick="showMsg()">Common way</button>
+    <button id="btn">Binding Event Later</button>
+    <button id="btn1">Binding with Listener</button>
+    <script>
+      const btn = document.getElementById("btn");
+      const btn1 = document.getElementById("btn1");
+      function showMsg() {
+        alert("Common way");
+      }
+      btn.onclick = function () {
+        alert("Event bound later on");
+      };
+      btn1.addEventListener("click", btnClicked);
+      function btnClicked() {
+        alert("Binding with listener");
+      }
+    </script>
+  </body> -->
+  <body>
+    <button onClick="showMsg(event)">Common way</button>
+    <script>
+      function showMsg(obj) {
+        console.log(obj);
+        console.log(obj.type);
+        console.log(obj.target);
+      }
+    </script>
+  </body>
+</html>

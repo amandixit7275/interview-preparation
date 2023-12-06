@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event</title>
+    <style>
+      div {
+        width: 300px;
+        height: 60px;
+        display: inline-block;
+        padding: 30px;
+        background-color: blue;
+        color: white;
+        font-size: 30px;
+        text-align: center;
+        justify-content: center;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="dive" onmouseup="eHandler()">Click Events</div>
+
+    <script>
+      function eHandler() {
+        let msg = "";
+        if (event.altKey) {
+          msg = "Alt";
+        }
+        if (event.ctrlKey) {
+          msg = "ctrl";
+        }
+        if (event.shiftKey) {
+          msg = "shift";
+        }
+        if (event.altKey && event.ctrlKey) {
+          msg = "Alt and Ctrl both keys are pressed";
+        }
+        document.getElementById("dive").innerHTML = msg;
+      }
+    </script>
+  </body>
+</html>
