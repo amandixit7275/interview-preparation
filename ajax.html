@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ajax call</title>
+  </head>
+  <body>
+    <script>
+      //creating request object having refernce of the class XMLHttpRequest()
+      let request = new XMLHttpRequest();
+      request.open("GET", "https://jsonplaceholder.typicode.com/comments");
+      //setting the time on timeout property
+      request.timeout = 2000;
+      request.send(); //actual connection is made with send() method
+      //.onload functionality only triggered when we get the data
+      request.onreadystatechange = function () {
+        if (request.readyState === 4 && request.status === 200) {
+          console.log(request.getAllResponseHeaders());
+          console.log(request.getResponseHeader("content-type"));
+          console.log(request.response);
+        } else console.log("invalid request"); //contains the body text of the recieved response
+      };
+
+      //handling it ontime event
+      request.ontimeout = function () {
+        console.log("Timed out ...");
+      };
+    </script>
+  </body>
+</html>

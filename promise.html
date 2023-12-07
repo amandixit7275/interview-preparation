@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promise</title>
+  </head>
+  <body>
+    <script>
+      const p1 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve("Promise 1 ");
+        }, 2000);
+      });
+
+      const p2 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve("Promise 2");
+        }, 1000);
+      });
+      const p3 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          reject("Promise 3");
+        }, 2000);
+      });
+      //it executes only if all the promise get resolved, sequence will be same as passed in the parameter, doesn't matter how much time out it is taking
+      //allSettled() method wait for all promises ragardless of their state & returns promise at the end
+      //Promise.race(): It is going to race among each promise
+      Promise.race([p1, p3, p2])
+        .then((prMsgs) => {
+          console.log(prMsgs);
+        })
+        .catch((err) => {
+          console.log("Error " + err);
+        });
+    </script>
+  </body>
+</html>
